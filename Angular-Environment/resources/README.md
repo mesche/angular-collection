@@ -138,6 +138,9 @@ JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event
 
 * [ng Bootstrap](https://ng-bootstrap.github.io) - Bootstrap 4 components, powered by Angular and written by the angular-ui Team
 
+*Charts*
+
+* [ng2-charts](http://valor-software.com/ng2-charts) - Beautiful charts directives for Angular2 based on Chart.js
 
 
 *Internationalization*
