@@ -1,0 +1,21 @@
+<h1>Dynamic Form &amp; Validation From Class</h1>
+
+<div *ngIf="bookSpec && bookForm">
+  <form novalidate [formGroup]="bookForm" (ngSubmit)="saveBook()">
+    <div class="form-group">
+      <div *ngFor="let field of bookForm['formFields']" class="form-row">
+        <label for="{{field}}">{{field}}</label>
+        <input type="text" id="{{field}}" formControlName="{{field}}" />
+        <div *ngIf="!bookForm.controls[field].valid && (bookForm.controls[field].dirty || bookForm.controls[field].touched)" class="alert alert-danger">
+          <div *ngIf="bookForm.controls[field].hasError('dynaControlError')" class="alert alert-danger">
+            <ul>
+              <li *ngFor="let error of bookForm.controls[field].errors['dynaControlError'].messages">
+                {{error}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

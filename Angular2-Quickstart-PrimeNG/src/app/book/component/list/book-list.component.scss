@@ -1,0 +1,13 @@
+/* 
+    https://angular.io/docs/ts/latest/guide/component-styles.html#!#special-selectors 
+
+/deep/ and ::shadow and >>> are not deprecated.
+    The deprecation is only for the native implementation in Chrome (other browsers never implemented it).
+    Angular has its own emulation of these CSS combinators in ViewEncapsulation.Emulated (default)    
+*/
+
+/deep/ .ui-state-readonly {
+    .ui-chkbox-box.ui-state-disabled {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,21 @@
+# All these settings have been taken from the clang-format manual,
+# Take a look at http://clang.llvm.org/docs/ClangFormatStyleOptions.html
+BasedOnStyle:    Google
+
+# Language, this format style is targeted at.
+Language:        JavaScript
+
+# If true, format braced lists as best suited for C++11 braced lists.
+# Important differences: - No spaces inside the braced list. 
+# - No line break before the closing brace. 
+# - Indentation with the continuation indent, not with the block indent.
+Cpp11BracedListStyle: false
+
+# A column limit of 0 means that there is no column limit.
+# In this case, clang-format will respect the input’s line breaking
+# decisions within statements unless they contradict other rules.
+ColumnLimit:     100
+
+# Break after each annotation on a field in formatted files.
+# Hint: Works also in TypeScript files
+BreakAfterJavaFieldAnnotations: true

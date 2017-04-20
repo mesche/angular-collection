@@ -1,0 +1,47 @@
+<div class="data-container">
+  <div class="datatable">
+    <h2 class="text-center">book list</h2>
+    <p-dataTable #booksDT [value]="books" selectionMode="single" [(selection)]="selectedBook" (onRowSelect)="onRowSelect($event.data)"
+      [paginator]="true" [rows]="15" [rowsPerPageOptions]="[5,10,15,20,25,50,100]" [responsive]="true">
+      <p-header>
+        <div class="ui-helper-clearfix" style="width:100%">
+          <div class="left">
+            <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" label="Add book"></button>
+          </div>
+        </div>
+      </p-header>
+      <p-column field="title" header="Title" [sortable]="true"></p-column>
+      <p-column field="author" header="Author" [sortable]="true"></p-column>
+      <p-column field="inStock" header="InStock" [sortable]="true">
+        <template let-col let-book="rowData" pTemplate="body">
+          <span><p-checkbox [(ngModel)]="book[col.field]" binary="true" disabled="true" class="ui-state-readonly"></p-checkbox></span>
+        </template>
+      </p-column>
+      <p-column field="price" header="Price" [sortable]="true">
+        <template let-col let-book="rowData" pTemplate="body">
+          <span>{{book[col.field] | stringReplace:',':'.' | currency:'EUR':true:'1.2-2'}}</span>
+        </template>
+      </p-column>
+      <p-column field="language" header="Language" [sortable]="true"></p-column>
+      <p-column field="isbn" header="ISBN" [sortable]="true"></p-column>
+      <p-column field="release" header="Release" [sortable]="true">
+        <template let-col let-book="rowData" let-ri="rowIndex" pTemplate="body">
+          <span>{{book[col.field] | date: "dd.MM.yyyy"}}</span>
+        </template>
+      </p-column>
+      <p-footer>
+        <div class="ui-helper-clearfix" style="width:100%">
+          <div class="left">
+            <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" label="Add book"></button>
+          </div>
+
+          <div class="right">
+            <button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="booksDT.exportCSV()"></button>
+          </div>
+        </div>
+      </p-footer>
+    </p-dataTable>
+  </div>
+</div>
+
+<app-book-form-dialog [currentBook]="book"></app-book-form-dialog>

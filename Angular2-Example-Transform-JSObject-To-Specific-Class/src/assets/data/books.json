@@ -1,0 +1,46 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "erat quisque erat",
+            "inStock": false,
+            "price": "5,20",
+            "language": "Tsonga",
+            "isbn": "201590848-X",
+            "release": "1476032336",
+            "author": {
+                "id": 10,
+                "name": "Nicholas",
+                "surename": "James"
+            }
+        },
+        {
+            "id": 2,
+            "title": "ipsum aliquam non mauris morbi non",
+            "inStock": true,
+            "price": "11,66",
+            "language": "Malagasy",
+            "isbn": "535175052-X",
+            "release": "1447417309",
+            "author": {
+                "id": 20,
+                "name": "Shawn",
+                "surename": "Simmons"
+            }
+        },
+        {
+            "id": 3,
+            "title": "quis libero nullam sit amet turpis",
+            "inStock": false,
+            "price": "19,41",
+            "language": "Kazakh",
+            "isbn": "098532139-3",
+            "release": "1454546534",
+            "author": {
+                "id": 30,
+                "name": "Judith",
+                "surename": "Banks"
+            }
+        }
+    ]
+}

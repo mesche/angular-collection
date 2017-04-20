@@ -1,0 +1,55 @@
+sudo: false
+
+dist: trusty
+
+language: java
+
+jdk:
+  - oraclejdk8
+  
+ 
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+      
+env:
+  global:
+    - NODE_VERSION=7.7.3
+    
+  matrix:
+    - TEST_DIR=Angular2-Quickstart-CLI
+    - TEST_DIR=Angular4-Quickstart-CLI
+    - TEST_DIR=Angular2-Example-Transform-JSObject-To-Specific-Class
+    - TEST_DIR=Angular2-Quickstart-PrimeNG
+    - TEST_DIR=Angular4-Example-Dynamic-Form-And-Validation
+    - TEST_DIR=Angular2-Quickstart-JavaEE7/module-client-web/src/main/angular  
+    - TEST_DIR=Angular2-Quickstart-JavaEE7
+
+cache:
+  directories:
+    - node_modules # NPM packages
+    - '$HOME/.m2/repository' # Cache Maven Repository
+
+before_install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+before_script:
+- npm install -g typescript
+- npm install -g @angular/cli
+- npm install -g karma
+
+install:
+  - nvm install $NODE_VERSION
+
+script: 
+  - nvm use $NODE_VERSION
+  - if [[ $TEST_DIR != 'Angular2-Quickstart-JavaEE7' ]]; then 
+       cd $TEST_DIR && npm install && ng build && ng test --watch false --single-run true && ng e2e ; 
+    else
+       cd $TEST_DIR && mvn clean verify ;
+    fi

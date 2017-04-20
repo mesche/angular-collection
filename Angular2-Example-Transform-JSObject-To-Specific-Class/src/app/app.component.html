@@ -1,0 +1,63 @@
+<h1>Compare - JS Object (Plain) / Specific Class (Transform)</h1>
+
+<div *ngIf="bookJS && bookSpec">
+  <table border="1" style="width: 100%;">
+    <thead>
+      <tr>
+        <th style="width: 200px"></th>
+        <th>JS Object (Plain)</th>
+        <th>Specific Class (Transform)</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>Type (Book)</td>
+      <td class="colred">{{findTypeOf(bookJS)}} - {{bookJS.constructor.name}}</td>
+      <td class="colgreen">{{findTypeOf(bookSpec)}} - {{bookSpec.constructor.name}}</td>
+    </tr>
+    <tr>
+      <td>book.title</td>
+      <td>{{bookJS.title}} ({{findTypeOf(bookJS.title)}} - {{bookJS.title.constructor.name}})</td>
+      <td>{{bookSpec.title}} ({{findTypeOf(bookSpec.title)}} - {{bookSpec.title.constructor.name}})</td>
+    </tr>
+    <tr>
+      <td>book.inStock</td>
+      <td>{{bookJS.inStock}} ({{findTypeOf(bookJS.inStock)}} - {{bookJS.inStock.constructor.name}})</td>
+      <td>{{bookSpec.inStock}} ({{findTypeOf(bookSpec.inStock)}} - {{bookSpec.inStock.constructor.name}})</td>
+    </tr>
+    <tr>
+      <td>book.release</td>
+      <td class="colred">{{bookJS.release}} ({{findTypeOf(bookJS.release)}} - {{bookJS.release.constructor.name}})</td>
+      <td class="colgreen">{{bookSpec.release}} ({{findTypeOf(bookSpec.release)}} - {{bookSpec.release.constructor.name}})</td>
+    </tr>
+    <tr>
+      <td>book.helloWorld()</td>
+      <td class="colred">{{bookJS.helloWorld}}</td>
+      <td class="colgreen">{{bookSpec.helloWorld}}</td>
+    </tr>
+    <tr>
+      <td>Type (Author)</td>
+      <td class="colred">{{findTypeOf(bookJS.author)}} - {{bookJS.author.constructor.name}}</td>
+      <td class="colgreen">{{findTypeOf(bookSpec.author)}} - {{bookSpec.author.constructor.name}}</td>
+    </tr>
+    <tr>
+      <td>book.author.name</td>
+      <td>{{bookJS.author.name}} ({{findTypeOf(bookJS.author.name)}} - {{bookJS.author.name.constructor.name}})</td>
+      <td>{{bookSpec.author.name}} ({{findTypeOf(bookSpec.author.name)}} - {{bookSpec.author.name.constructor.name}})</td>
+    </tr>
+    <tr>
+      <td>JSON</td>
+      <td>{{bookJS | json}}</td>
+      <td>{{bookSpec | json}}</td>
+    </tr>
+    <tr>
+      <td>JSON.stringify()</td>
+      <td>{{bookJS | json}}</td>
+      <td>{{bookSpec | json}}</td>
+    </tr>
+    <tr>
+      <td>JSON (transform)</td>
+      <td></td>
+      <td>{{transformToJSON(bookSpec) | json}}</td>
+    </tr>
+  </table>
+</div>

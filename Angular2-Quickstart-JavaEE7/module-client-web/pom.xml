@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>angular2-qickstart-javaee7</artifactId>
+        <groupId>com.bloggingit</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.bloggingit</groupId>
+    <artifactId>angular2-qickstart-javaee7-client-web</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>Angular2-JavaEE7-Quickstart-Client-Web</name>
+
+    <properties>
+        <client.dir.name>angular</client.dir.name>
+        <client.source.dir>${project.basedir}/src/main/${client.dir.name}</client.source.dir>
+        <client.build.dir>${project.build.directory}/${client.dir.name}</client.build.dir>        
+        <!-- Do not compile, this is NOT a real java project -->
+        <maven.main.skip>true</maven.main.skip>
+        <maven.test.skip>true</maven.test.skip>
+        
+        <version.maven.frontent-plugin>1.3</version.maven.frontent-plugin>
+        <version.build.npm>4.1.2</version.build.npm>
+        <version.build.node>v7.5.0</version.build.node>
+        
+        <build.maven.tools.dir>${project.basedir}/build-tools</build.maven.tools.dir>
+        <build.npm.cmd>run build -- --output-path=${client.build.dir}</build.npm.cmd>
+    </properties>
+    
+    <build>      
+        <plugins>      
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>${version.maven.frontent-plugin}</version>
+                <configuration>
+                    <skip>${maven.frontend.skip}</skip>
+                    <npmVersion>${version.build.npm}</npmVersion>
+                    <nodeVersion>${version.build.node}</nodeVersion>
+                    <workingDirectory>${client.source.dir}</workingDirectory>
+                    <!-- node executable and npm gets installed under target/ -->
+                    <installDirectory>${build.maven.tools.dir}</installDirectory>                    
+                </configuration>
+                <executions>
+                    <execution>
+                        <!-- (3) First, install node and npm -->
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <!-- (4) And then run npm install -->
+                        <id>npm</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <!-- Execute "npm run build" with parameters -> see scripts.build in package.json  -->
+                        <id>build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <arguments>${build.npm.cmd}</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>                        
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>${client.build.dir}</directory>
+                        </resource>
+                        <resource>
+                            <directory>${client.source.dir}/src/assets</directory>
+                        </resource>                                     
+                    </webResources>
+                </configuration>
+            </plugin> 
+        </plugins>  
+    </build>
+    
+    <profiles>
+        <profile>
+            <id>cleanup</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            
+            <properties>
+                <maven.resources.skip>true</maven.resources.skip>
+                <maven.war.skip>true</maven.war.skip>
+                <maven.install.skip>true</maven.install.skip>
+                <maven.frontend.skip>true</maven.frontend.skip>
+            </properties>
+            
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <configuration>
+                            <filesets>
+                                <fileset>
+                                    <directory>${build.maven.tools.dir}</directory>
+                                </fileset>
+                                <fileset>
+                                    <directory>${client.source.dir}/node_modules</directory>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

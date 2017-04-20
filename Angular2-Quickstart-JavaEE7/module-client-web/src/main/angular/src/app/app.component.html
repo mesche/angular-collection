@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+
+<form [formGroup]="restForm" (submit)="performSubmitRestForm(restForm)">
+    <h3>Books REST-Service</h3>
+    <div>
+        <label for="restURL">URL:</label>
+        <input id="restURL" name="restURL" type="url" class="form-control" placeholder="restURL" formControlName="restURL" />
+    </div>
+    <br/>
+    <div>
+        <button type="submit" [disabled]="restForm.invalid">Click to load the books from REST-Service</button>
+    </div>
+</form>
+
+<div [hidden]="!books">
+    <h3>Book list</h3>
+    <ul>
+        <li *ngFor="let book of books">
+            {{ book.id }} - {{ book.title }}
+    </li>
+</ul>
+</div>
