@@ -1,6 +1,7 @@
 #  Angular 2 - Transform JS object to specific class - Example
 
 [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/mesche/angular-collection/branches/master/3)](https://travis-ci.org/mesche/angular-collection)
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=mesche&repoName=angular-collection&branch=master&pipelineName=Angular2-Example-Transform-JSObject-To-Specific-Class&accountName=esche&type=cf-1)]( https://g.codefresh.io/repositories/mesche/angular-collection/builds?filter=trigger:build;branch:master;service:59046a02270a090001ec693d~Angular2-Example-Transform-JSObject-To-Specific-Class)
 
 An example Angular 2 project with [Class-Transformer](https://github.com/pleerock/class-transformer). 
 The purpose of the library is to map instances of plain javascript objects to instances of class objects. 
