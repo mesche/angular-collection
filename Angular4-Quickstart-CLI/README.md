@@ -1,6 +1,7 @@
 #  Angular4-Quickstart-CLI
 
 [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/mesche/angular-collection/branches/master/2)](https://travis-ci.org/mesche/angular-collection)
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=mesche&repoName=angular-collection&branch=master&pipelineName=Angular4-Quickstart-CLI&accountName=esche&type=cf-1)]( https://g.codefresh.io/repositories/mesche/angular-collection/builds?filter=trigger:build;branch:master;service:5904752b270a090001ecb3b8~Angular4-Quickstart-CLI)
 
 This project was generated with 
 
