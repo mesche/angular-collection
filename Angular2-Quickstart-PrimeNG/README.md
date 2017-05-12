@@ -1,6 +1,7 @@
 # Angular 2 - PrimeNG - Quickstart
 
 [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/mesche/angular-collection/branches/master/4)](https://travis-ci.org/mesche/angular-collection)
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=mesche&repoName=angular-collection&branch=master&pipelineName=Angular2-Quickstart-PrimeNG&accountName=esche&type=cf-1)]( https://g.codefresh.io/repositories/mesche/angular-collection/builds?filter=trigger:build;branch:master;service:59046a42c1f043000197bfad~Angular2-Quickstart-PrimeNG)
 
 A quickstart project for [Angular 2](https://angular.io) with [PrimeNG](https://www.primefaces.org/primeng).
 

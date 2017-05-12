@@ -1,6 +1,8 @@
 #  Angular 4 - Dynamic Form & Validation - Example
 
 [![Build Status](https://travis-matrix-badges.herokuapp.com/repos/mesche/angular-collection/branches/master/5)](https://travis-ci.org/mesche/angular-collection)
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=mesche&repoName=angular-collection&branch=master&pipelineName=Angular4-Example-Dynamic-Form-And-Validation&accountName=esche&type=cf-1)]( https://g.codefresh.io/repositories/mesche/angular-collection/builds?filter=trigger:build;branch:master;service:59046a8464e010000117a890~Angular4-Example-Dynamic-Form-And-Validation)
+
 
 An example Angular 4 project for a custom validator for a decorator based validation and a dynamic form builder from an instance of a class.
 
