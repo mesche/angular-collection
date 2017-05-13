@@ -67,6 +67,8 @@ Create an empty file `_variables.scss` in `src` directory and add the following 
   @import '../node_modules/bootstrap/scss/bootstrap';
 ```
 
+In Bootstrap 4 it is easy to overriding the default variables within the _variables.scss file. Add the appropriate variable, modify the value, and recompile your Sass to change our default values.
+
 #### Step 2
 
 Open `/src/index.html` and add the following markup into the body before the `app-root` tag to let ngx-bootstrap know, that you are using Bootstrap 4.
