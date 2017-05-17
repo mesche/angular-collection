@@ -27,7 +27,8 @@ env:
     - TEST_DIR=Angular4-Example-Dynamic-Form-And-Validation TEST_TYPE=ng
     - TEST_DIR=Angular2-Quickstart-JavaEE7/module-client-web/src/main/angular TEST_TYPE=ng
     - TEST_DIR=Angular2-Quickstart-JavaEE7 TEST_TYPE=mvn
-
+    - TEST_DIR=Angular4-Example-Bootstrap4 TEST_TYPE=ng
+    
 cache:
   directories:
     - node_modules # NPM packages
