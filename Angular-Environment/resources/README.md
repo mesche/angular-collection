@@ -187,11 +187,13 @@ JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event
 
 * [Karma PhantomJS Launcher](https://github.com/karma-runner/karma-phantomjs-launcher) - A Karma plugin to launch PhantomJS
 
-- [Webdriver Manager](https://github.com/angular/webdriver-manager) - A selenium server and browser driver manager for your end to end tests
+* [Webdriver Manager](https://github.com/angular/webdriver-manager) - A selenium server and browser driver manager for your end to end tests
 
 *Others*
 
 * [Babel Plugin Angular2 Annotations](https://github.com/shuhei/babel-plugin-angular2-annotations) - A babel transformer plugin for Angular 2 decorators and type annotations
+
+* [P(rocess) M(anager) 2](https://github.com/Unitech/pm2) - PM2 is a production process manager for Node.js applications with a built-in load balancer
 
 
 ## Integrations
